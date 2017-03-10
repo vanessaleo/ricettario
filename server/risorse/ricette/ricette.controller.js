@@ -20,6 +20,20 @@ var getRicette=function(req,res){
       });
     };
 
+    var votoRicetta=function(req,res){
+      var id=req.params.id;
+      var voto=req.body.voto;
+        Ricette.findById(id).exec().then(function(ricetta){
+          ricetta.voto.nvoti+=1;
+          ricetta.voto.svoti+=voto;
+          return ricetta.save();
+        }).then(function(data){
+          res.status(200).json(data);
+        }).catch(function (err){
+          res.status(400).send(err);
+        });
+      };
+
     var findRicette=function(req,res){
       var ingrediente=req.query.ingrediente;
       console.log(ingrediente)
@@ -42,6 +56,14 @@ var getRicette=function(req,res){
             res.status(400).send(err);
           });
         };
+        var deleteRicetta=function(req,res){
+          var id=req.params.id;
+          Ricette.findById(id).remove().then(function(data){
+            res.status(200).json(data);
+          }).catch(function (err){
+            res.status(400).send(err);
+          });
+        };
 
     var createRicette=function(req,res){
   var newRicetta=new Ricette(req.body);
@@ -57,7 +79,8 @@ var getRicette=function(req,res){
     createRicette:createRicette,
     dettaglioRicette:dettaglioRicette,
     findRicette:findRicette,
-    findCategoriaRicette: findCategoriaRicette
-  }
+    findCategoriaRicette: findCategoriaRicette,
+    deleteRicetta:deleteRicetta,
+votoRicetta:votoRicetta  }
 
 })();

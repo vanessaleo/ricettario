@@ -47,10 +47,13 @@ var ricetteSchema = new Schema({
         required: [true, 'Devi inserire gli ingredienti']
     }],
     voto: {
+      nvoti: {
+      type:Number
+    },
+      svoti: {
         type: Number,
-        required: true,
-        min: 1,
-        max:5
+      
+        }
     },
     commenti: [{
       author: {
