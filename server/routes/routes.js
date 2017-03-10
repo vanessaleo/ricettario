@@ -1,8 +1,8 @@
 
-module.exports=function(app){
+module.exports=function(app,express,path){
 //bootstrap, css:client
-// app.use('/bootstrap',express.static(path.join(__dirname,'..','..','node_modules','bootstrap','dist')));
-// app.use('/css',express.static(path.join(__dirname,'..','..','client','css')));
+app.use('/bootstrap',express.static(path.join(__dirname,'..','..','node_modules','bootstrap','dist')));
+app.use('/css',express.static(path.join(__dirname,'..','..','client','css')));
 
 //rotta per utenti
 app.use('/utenti', require('./../risorse/utenti'));
@@ -10,14 +10,12 @@ app.use('/utenti', require('./../risorse/utenti'));
 app.use('/ricette', require('./../risorse/ricette'));
 
 //jquer, js
-// app.use('/jquery',express.static(path.join(__dirname,'..','..','node_modules','jquery','dist')));
-// app.use('/js',express.static(path.join(__dirname,'..','..','client','js')));
+app.use('/jquery',express.static(path.join(__dirname,'..','..','node_modules','jquery','dist')));
+app.use('/js',express.static(path.join(__dirname,'..','..','client','js')));
 
 //serviamo la index
-// app.get('/',function(req,res){
-// res.sendFile(path.join(__dirname,'..','..','client','index.html'))
-// });
-// ROUTERS
-// var users=require('./../utenti/index.js');
-// app.use('/users', users);
+app.get('/',function(req,res){
+res.sendFile(path.join(__dirname,'..','..','client','index.html'))
+});
+
 };

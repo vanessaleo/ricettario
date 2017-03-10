@@ -9,7 +9,7 @@ var userSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true, 'Devi inserire il password'],
+        required: [true, 'Devi inserire password'],
     },
 immagine:{
   type:String
