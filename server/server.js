@@ -10,7 +10,7 @@ app.use(bodyparser.json());
 //connessione al db
 require('./config/database.js')(mongoose);
 //rotte principali
-require('./routes/rotte.js')(app,express,path);
+require('./routes/routes.js')(app,express,path);
 
 //start del server
 app.listen(PORT, function(err){

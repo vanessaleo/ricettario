@@ -1,6 +1,6 @@
 var express=require('express');
 var router=express.Router();
-// var utenti= require('./utenti.controller.js');
+// var Users= require('./utenti.controller.js');
 
 //lista utenti
 // router.get('/',Users.getUsers);

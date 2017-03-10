@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var ricettaSchema = mongoose.Schema;
 
 //user con validazione dei dati
 // var ricettaSchema = new Schema({

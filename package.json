@@ -4,11 +4,20 @@
   "description": "ricette",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "ricette"
   ],
   "author": "artoo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.8.6",
+    "path": "^0.12.7"
+  }
 }
