@@ -5,7 +5,7 @@ module.exports=function(app){
 // app.use('/css',express.static(path.join(__dirname,'..','..','client','css')));
 
 //rotta per utenti
-app.use('/utenti', require('./../risorse/utenti'));
+// app.use('/utenti', require('./../risorse/utenti'));
 //rotta per ricette
 app.use('/ricette', require('./../risorse/ricette'));
 
