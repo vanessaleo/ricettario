@@ -9,6 +9,8 @@ router.get('/:id([0-9a-f]{24})', Ricette.dettaglioRicette);
 
 router.put('/:id([0-9a-f]{24})', Ricette.votoRicetta);
 
+router.put('/commento/:id([0-9a-f]{24})', Ricette.commentoRicetta);
+
 router.get('/cerca', Ricette.findRicette);
 
 router.get('/ricerca', Ricette.findCategoriaRicette);
