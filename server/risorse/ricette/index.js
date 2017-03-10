@@ -9,6 +9,9 @@ router.get('/:id([0-9a-f]{24})', Ricette.dettaglioRicette);
 
 router.get('/cerca', Ricette.findRicette);
 
+router.get('/ricerca', Ricette.findCategoriaRicette);
+
+
 router.post('/', Ricette.createRicette);
 
 module.exports=router;
