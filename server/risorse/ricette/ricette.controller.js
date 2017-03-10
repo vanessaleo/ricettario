@@ -1,30 +1,31 @@
-// var Ricette=require('./ricette.model.js');
-// var mongoose=require('mongoose');
+var mongoose=require('mongoose');
+var Ricette=require('./ricette.model.js');
 
 module.exports=(function(){
 
 var getRicette=function(req,res){
-  // Ricette.find().exec().then(function(data){
-  //   res.status(200).json(data);
-  // }).catch(function(err){
-  //   res.status(400).send(err);
-  // })
-  res.send('le mie ricette');
+  Ricette.find().exec().then(function(data){
+    res.status(200).json(data);
+  }).catch(function(err){
+    res.status(400).send(err);
+  })
   };
 
   var dettaglioRicette=function(req,res){
-  var id=req.params.id;
-    res.send('dettaglio ricette' +id);
+    var id=req.params.id;
+      Ricette.findById(id).exec().then(function(data){
+        res.status(200).json(data);
+      }).catch(function (err){
+        res.status(400).send(err);
+      });
     };
 
     var createRicette=function(req,res){
-      var ricetta=req.body;
-  console.log(ricetta);
-  var newRicetta=new Ricette(ricetta);
+  var newRicetta=new Ricette(req.body);
   newRicetta.save().then(function(data){
-    res.status(200).send(data);
+    res.status(200).json(data);
   }).catch(function(err){
-    res.status(400).send(err);
+    res.status(400).json(err);
   });
       };
 

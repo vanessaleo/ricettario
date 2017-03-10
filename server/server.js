@@ -3,8 +3,8 @@ var app=express();
 var path=require('path');
 const PORT= 3003;
 var mongoose=require('mongoose');
-var bodyparser=require('body-parser');
 //parser nel body
+var bodyparser=require('body-parser');
 app.use(bodyparser.json());
 
 //connessione al db

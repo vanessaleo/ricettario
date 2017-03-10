@@ -2,21 +2,21 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 //user con validazione dei dati
-var ricettaSchema = new Schema({
+var ricetteSchema = new Schema({
     titolo: {
         type: String,
         required: [true, 'Devi inserire il titolo']
     },
     categoria: {
         type: String,
-        enum: ['Antipasti', 'Primi', 'Secondi','Contorni' 'Dolci'],
+        enum: ['Antipasti', 'Primi', 'Secondi','Contorni','Dolci'],
         required: [true, 'Devi inserire la categoria']
 
     },
-    immagine: [{
+    immagine: {
         type: String,
         required: [true, 'Devi inserire immagine']
-    }],
+    },
     difficoltà: {
         type: String,
         required: true,
@@ -53,11 +53,13 @@ var ricettaSchema = new Schema({
         max:5
     },
     commenti: [{
-        autore:Schema.Types.ObjectId,
-        commento:String
+      author: {
+        type: Schema.Types.ObjectId,
+      ref: 'utenti'},
+      commento:String
     }]
 
 });
 
-var Ricette = mongoose.model('Ricette', ricettaSchema);
-module.exports = User;
+var Ricette = mongoose.model('Ricette', ricetteSchema);
+module.exports = Ricette;
