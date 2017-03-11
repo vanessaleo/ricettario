@@ -7,12 +7,12 @@ router.get('/',Users.getUsers);
 // //creazione utente
 router.post('/',Users.createUsers);
 // //dettaglio utente
-router.get('/id/:id',Users.detailUsers);
-// //elimina utente
-// router.delete('/id/:id',Users.deleteUsers);
-// //aggiorna utente
-// router.put('/id/:id',Users.updateUsers);
-// //ricerca
-// router.get('/cerca/', Users.cercaUsers);
+router.get('/id/:id([0-9a-f]{24})',Users.detailUsers);
+//elimina utente
+router.delete('/id/:id([0-9a-f]{24})',Users.deleteUsers);
+//aggiorna utente
+router.put('/aggiorna/:id([0-9a-f]{24})',Users.updateUsers);
+//ricerca
+router.get('/cerca/', Users.cercaUsers);
 
 module.exports=router;

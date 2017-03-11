@@ -5,11 +5,12 @@ var Schema = mongoose.Schema;
 var ricetteSchema = new Schema({
     titolo: {
         type: String,
-        required: [true, 'Devi inserire il titolo']
+        required: [true, 'Devi inserire il titolo'],
+        unique: true
     },
     categoria: {
         type: String,
-        enum: ['Antipasti', 'Primi', 'Secondi','Contorni','Dolci'],
+        enum: ['Antipasti', 'Primi', 'Secondi', 'Contorni', 'Dolci'],
         required: [true, 'Devi inserire la categoria']
 
     },
@@ -47,19 +48,23 @@ var ricetteSchema = new Schema({
         required: [true, 'Devi inserire gli ingredienti']
     }],
     voto: {
-      nvoti: {
-      type:Number
-    },
-      svoti: {
-        type: Number,
-      
+        nvoti: {
+            type: Number
+        },
+        svoti: {
+            type: Number,
+
         }
     },
     commenti: [{
-      author: {
-        type: Schema.Types.ObjectId,
-      ref: 'Users'},
-      commento:String
+        author: {
+            type: Schema.Types.ObjectId,
+            ref: 'Users'
+        },
+        commento: {
+            type: String,
+            lowercase: true
+        }
     }]
 
 });

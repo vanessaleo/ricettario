@@ -72,7 +72,7 @@ module.exports = (function() {
     };
     var deleteRicetta = function(req, res) {
         var id = req.params.id;
-        Ricette.findById(id).remove().then(function(data) {
+        Ricette.findByIdAndRemove(id).then(function(data) {
             res.status(200).json(data);
         }).catch(function(err) {
             res.status(400).send(err);
